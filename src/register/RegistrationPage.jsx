@@ -580,7 +580,7 @@ const RegistrationPage = (props) => {
                 handleFocus={handleOnFocus}
                 handleSuggestionClick={handleSuggestionClick}
                 handleUsernameSuggestionClose={handleUsernameSuggestionClosed}
-                usernameSuggestions={usernameSuggestions}
+                // usernameSuggestions={usernameSuggestions}
                 errorMessage={errors.username}
                 helpText={[formatMessage(messages['help.text.username.1']), formatMessage(messages['help.text.username.2'])]}
                 floatingLabel={formatMessage(messages['registration.username.label'])}
