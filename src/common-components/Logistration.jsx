@@ -22,6 +22,7 @@ import { LOGIN_PAGE, REGISTER_PAGE } from '../data/constants';
 //   getTpaHint, getTpaProvider,
 //   updatePathWithQueryParams,
 // } from '../data/utils';
+import loginBg from '../images/login-bg.png';
 import { LoginPage } from '../login';
 import { RegistrationPage } from '../register';
 import { backupRegistrationForm } from '../register/data/actions';
@@ -141,19 +142,21 @@ const Logistration = (props) => {
     // </BaseComponent>
     <div className="flex flex-col justify-between h-screen">
       <Header />
-      <div className="container grid items-center gap-5 py-8 mt-20 lg:grid-cols-2">
-        <div id="main-content" className="main-content">
-          {selectedPage === LOGIN_PAGE
-            ? <LoginPage institutionLogin={institutionLogin} handleInstitutionLogin={handleInstitutionLogin} />
-            : (
-              <RegistrationPage
-                institutionLogin={institutionLogin}
-                handleInstitutionLogin={handleInstitutionLogin}
-              />
-            )}
-        </div>
-        <div className="mx-auto">
-          <img src="/login-bg.png" alt="" />
+      <div className="bg-gray-light">
+        <div className="container grid items-center gap-5 py-8 mt-20 lg:grid-cols-2">
+          <div id="main-content" className="main-content">
+            {selectedPage === LOGIN_PAGE
+              ? <LoginPage institutionLogin={institutionLogin} handleInstitutionLogin={handleInstitutionLogin} />
+              : (
+                <RegistrationPage
+                  institutionLogin={institutionLogin}
+                  handleInstitutionLogin={handleInstitutionLogin}
+                />
+              )}
+          </div>
+          <div className="mx-auto">
+            <img src={loginBg} alt="" />
+          </div>
         </div>
       </div>
       <Footer />

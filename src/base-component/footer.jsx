@@ -1,9 +1,11 @@
+import logo from '../images/logo.png';
+
 const Footer = () => (
   <footer className="py-8 bg-gray-light">
     <div className="container">
       <img
         className="h-14 max-w-none"
-        src="/logo.png"
+        src={logo}
         alt="Company name"
       />
       <div className="flex flex-col justify-between gap-5 pt-4 mt-4 border-t border-border md:flex-row">

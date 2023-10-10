@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { getConfig } from '@edx/frontend-platform';
 import { Link } from 'react-router-dom';
 
+import logo from '../images/logo.png';
+
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -12,7 +14,7 @@ const Header = () => {
         <a
           href={getConfig().MARKETING_SITE_BASE_URL}
         >
-          <img className="max-w-none h-14" src="/logo.png" alt="logo" />
+          <img className="max-w-none h-14" src={logo} alt="logo" />
         </a>
 
         <nav className="flex items-center justify-between w-full">

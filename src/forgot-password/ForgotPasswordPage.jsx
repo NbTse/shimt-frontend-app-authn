@@ -15,8 +15,8 @@ import {
 // import { ChevronLeft } from '@edx/paragon/icons';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-// import { Redirect } from 'react-router-dom';
 
+// import { Redirect } from 'react-router-dom';
 // import { BaseComponent } from '../base-component';
 import Footer from '../base-component/footer';
 import Header from '../base-component/header';
@@ -30,6 +30,7 @@ import {
   // updatePathWithQueryParams,
   windowScrollTo,
 } from '../data/utils';
+import loginBg from '../images/login-bg.png';
 import { forgotPassword, setForgotPasswordFormData } from './data/actions';
 import { forgotPasswordResultSelector } from './data/selectors';
 import ForgotPasswordAlert from './ForgotPasswordAlert';
@@ -177,48 +178,49 @@ const ForgotPasswordPage = (props) => {
     // </BaseComponent>
     <div className="flex flex-col justify-between h-screen">
       <Header />
-      <div className="container grid items-center gap-5 py-8 mt-20 lg:grid-cols-2">
-        <div>
-          <Helmet>
-            <title>{formatMessage(messages['forgot.password.page.title'],
-              { siteName: getConfig().SITE_NAME })}
-            </title>
-          </Helmet>
+      <div className="bg-gray-light">
+        <div className="container grid items-center gap-5 py-8 mt-20 lg:grid-cols-2">
+          <div>
+            <Helmet>
+              <title>{formatMessage(messages['forgot.password.page.title'],
+                { siteName: getConfig().SITE_NAME })}
+              </title>
+            </Helmet>
 
-          <div className="p-8 bg-white rounded-xl">
-            <h1 className="text-4xl font-bold text-center !text-primary">{formatMessage(messages['forgot.password.page.heading'])}</h1>
-            <p className="mt-3 mb-5 text-sm text-center text-muted">{formatMessage(messages['forgot.password.page.instructions'])}</p>
+            <div className="p-8 bg-white rounded-xl">
+              <h1 className="text-4xl font-bold text-center !text-primary">{formatMessage(messages['forgot.password.page.heading'])}</h1>
+              <p className="mt-3 mb-5 text-sm text-center text-muted">{formatMessage(messages['forgot.password.page.instructions'])}</p>
 
-            <Form id="forget-password-form" name="forget-password-form" className="mw-xs">
-              <ForgotPasswordAlert email={bannerEmail} emailError={formErrors} status={status} />
+              <Form id="forget-password-form" name="forget-password-form" className="mw-xs">
+                <ForgotPasswordAlert email={bannerEmail} emailError={formErrors} status={status} />
 
-              <FormGroup
-                floatingLabel={formatMessage(messages['forgot.password.page.email.field.label'])}
-                name="email"
-                value={email}
-                autoComplete="on"
-                errorMessage={validationError}
-                handleChange={(e) => setEmail(e.target.value)}
-                handleBlur={handleBlur}
-                handleFocus={handleFocus}
-                helpText={[formatMessage(messages['forgot.password.email.help.text'], { platformName })]}
-              />
-              <StatefulButton
-                id="submit-forget-password"
-                name="submit-forget-password"
-                type="submit"
-                variant="brand"
-                // className="forgot-password-button-width"
-                className="my-btn-primary"
-                state={submitState}
-                labels={{
-                  default: formatMessage(messages['forgot.password.page.submit.button']),
-                  pending: '',
-                }}
-                onClick={handleSubmit}
-                onMouseDown={(e) => e.preventDefault()}
-              />
-              {/* {(getConfig().LOGIN_ISSUE_SUPPORT_LINK) && (
+                <FormGroup
+                  floatingLabel={formatMessage(messages['forgot.password.page.email.field.label'])}
+                  name="email"
+                  value={email}
+                  autoComplete="on"
+                  errorMessage={validationError}
+                  handleChange={(e) => setEmail(e.target.value)}
+                  handleBlur={handleBlur}
+                  handleFocus={handleFocus}
+                  helpText={[formatMessage(messages['forgot.password.email.help.text'], { platformName })]}
+                />
+                <StatefulButton
+                  id="submit-forget-password"
+                  name="submit-forget-password"
+                  type="submit"
+                  variant="brand"
+                  // className="forgot-password-button-width"
+                  className="my-btn-primary"
+                  state={submitState}
+                  labels={{
+                    default: formatMessage(messages['forgot.password.page.submit.button']),
+                    pending: '',
+                  }}
+                  onClick={handleSubmit}
+                  onMouseDown={(e) => e.preventDefault()}
+                />
+                {/* {(getConfig().LOGIN_ISSUE_SUPPORT_LINK) && (
                   <Hyperlink
                     id="forgot-password"
                     name="forgot-password"
@@ -230,17 +232,18 @@ const ForgotPasswordPage = (props) => {
                     {formatMessage(messages['need.help.sign.in.text'])}
                   </Hyperlink>
                 )} */}
-              <p className="mt-5 text-sm text-muted">
-                {formatMessage(messages['additional.help.text'], { platformName })}{' '}
-                <span className="text-primary">
-                  <Hyperlink isInline destination={`mailto:${getConfig().INFO_EMAIL}`}>{getConfig().INFO_EMAIL}</Hyperlink>
-                </span>
-              </p>
-            </Form>
+                <p className="mt-5 text-sm text-muted">
+                  {formatMessage(messages['additional.help.text'], { platformName })}{' '}
+                  <span className="text-primary">
+                    <Hyperlink isInline destination={`mailto:${getConfig().INFO_EMAIL}`}>{getConfig().INFO_EMAIL}</Hyperlink>
+                  </span>
+                </p>
+              </Form>
+            </div>
           </div>
-        </div>
-        <div className="mx-auto">
-          <img src="/login-bg.png" alt="" />
+          <div className="mx-auto">
+            <img src={loginBg} alt="" />
+          </div>
         </div>
       </div>
       <Footer />
