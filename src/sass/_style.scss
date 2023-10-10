@@ -1,0 +1,86 @@
+$white: #ffffff;
+
+$elevation-level-2-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+
+#password-requirement-left {
+  opacity: 1;
+  filter: drop-shadow($elevation-level-2-shadow)
+    drop-shadow($elevation-level-2-shadow) !important;
+  right: 0.2rem !important;
+  .tooltip-inner {
+    background: $white;
+    display: block;
+    color: $gray-500;
+  }
+  .arrow::before {
+    border-left-color: $white;
+  }
+}
+
+#password-requirement-top {
+  filter: drop-shadow($elevation-level-2-shadow)
+    drop-shadow($elevation-level-2-shadow) !important;
+  opacity: 1;
+  width: 90%;
+  bottom: 10px !important;
+  display: flex;
+  justify-content: center;
+
+  .tooltip-inner {
+    min-width: 464px !important;
+    background: $white;
+    display: block;
+    color: $gray-500;
+  }
+  .arrow::before {
+    border-top-color: $white;
+  }
+}
+
+.has-floating-label {
+  color: $gray-500;
+}
+
+.form-control {
+  background-color: $white !important;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  height: 2.75rem;
+}
+
+.pgn__form-control-decorator-group {
+  margin: 0;
+}
+
+.pgn__form-control-floating-label .pgn__form-control-floating-label-content {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.pgn__form-text {
+  font-size: 0.75rem;
+}
+
+.form-group__form-field
+  .form-control:focus
+  ~ .pgn__form-control-floating-label
+  .pgn__form-control-floating-label-content {
+  font-size: 16px;
+  color: $primary-700;
+}
+
+.form-group__form-field
+  .form-control:not([value=""]):not(:focus)
+  ~ .pgn__form-control-floating-label
+  .pgn__form-control-floating-label-content {
+  font-size: 16px;
+}
+
+.pgn__form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-text-size {
+  margin-top: 0.188rem !important;
+  line-height: 1.25rem;
+}
